@@ -1,26 +1,31 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Provider } from 'react-redux';
+import { Switch, BrowserRouter, Route } from 'react-router-dom';
+import { DashboardPage } from './pages/dashboard.page';
+import { HomePage } from './pages/home.page';
+import store from './store';
 
-function App() {
+/**
+ * This is main App component. Here, you can define the routes
+ * and global layout if necessary.
+ */
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Provider store={store}>
+        {/* Insert layouting or other stuff here. */}
+
+        <Switch>
+          <Route path="/dashboard">
+            <DashboardPage />
+          </Route>
+          <Route path="/">
+            <HomePage />
+          </Route>
+        </Switch>
+      </Provider>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;

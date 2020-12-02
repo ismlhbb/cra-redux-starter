@@ -1,3 +1,5 @@
+Created using `yarn create react-app APP_NAME --template typescript`
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
